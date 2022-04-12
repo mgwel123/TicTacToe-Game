@@ -4,9 +4,88 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+
+        #grid-row{
+            float: center;
+            
+            
+
+        }
+
+        .tic-box{
+            font-size: 72px;
+            padding: 80px;
+            text-align: center;
+            border-color: black;
+            border: solid;
+
+         
+        }
+
+        .page-header{
+            text-align: center;
+            margin: .4vw 8px;
+            background: #398b54;
+            float: center;
+            border-radius: 8px;
+        }
+
+        .container {
+            float: center;
+        }
+
+
+    </style>
 </head>
 <body>
+    <div class="container" id="header-box">
+        <h1 class="page-header" id="header">Tic Tac Toe</h1>
+    </div>
+
+    <div class="container" id="game-grid">
+        
+        <div class="row tic-row" id="grid-row">
+            <div class="col-4 tic-box" id="box-1">1</div>
+            <div class="col-4 tic-box" id="box-2">2</div>
+            <div class="col-4 tic-box" id="box-3">3</div>
+        </div>
+        <div class="row tic-row" id="grid-row">
+            <div class="col-4 tic-box" id="box-4">4</div>
+            <div class="col-4 tic-box" id="box-5">5</div>
+            <div class="col-4 tic-box" id="box-6">6</div>
+        </div>
+        <div class="row tic-row" id="grid-row">
+            <div class="col-4 tic-box" id="box-7">7</div>
+            <div class="col-4 tic-box" id="box-8">8</div>
+            <div class="col-4 tic-box" id="box-9">9</div>
+        </div>
+
+    </div>
+    <br><br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button class="btn btn-primary">Play</button>
+                <button class="btn btn-success">Reset</button>
+            </div>
+        </div>  
+    </div>
+
+
     
+    
+
+
+
+
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="tictactoe.js"></script>
 </body>
 </html>

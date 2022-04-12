@@ -1,0 +1,23 @@
+.page-header{
+    text-align: center;
+    margin: .4vw 0;
+    background: #226639;
+    float: center;
+    border-radius: 8px;
+}
+
+#grid-row{
+    margin: 4px;
+    padding: 4px;
+    float: center;
+    border-bottom: solid;
+    border-color: black;
+
+}
+
+.tic-box{
+    margin: 4px;
+    padding: 4px;
+    text-align: center;
+    float: center;
+}
