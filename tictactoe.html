@@ -32,6 +32,7 @@
         #game-grid {
             display: grid;
             place-items: center;
+            cursor: pointer;
         
         }
 
@@ -47,11 +48,29 @@
             float: center;
         }
 
-    .col-sm-6 {
-        text-align: center;
-        font-size: 48px;
+        .col-sm-6 {
+            text-align: center;
+            font-size: 48px;
 
-    }
+        }
+
+        #game-over-box {
+            float: center;
+
+
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+
+        .visible {
+            visibility: visible;
+        }
 
 
     </style>
@@ -64,19 +83,19 @@
     <div class="container" id="game-grid">
         
         <div class="row tic-row" id="grid-row">
-            <div data-index="1" class="col-4 tic-box" id="box-1">+</div>
-            <div data-index="2" class="col-4 tic-box" id="box-2">+</div>
-            <div data-index="3" class="col-4 tic-box" id="box-3">+</div>
+            <div data-index="1" class="col-4 tic-box" id="box-1"></div>
+            <div data-index="2" class="col-4 tic-box" id="box-2"></div>
+            <div data-index="3" class="col-4 tic-box" id="box-3"></div>
         </div>
         <div class="row tic-row" id="grid-row">
-            <div data-index="4" class="col-4 tic-box" id="box-4">+</div>
-            <div data-index="5" class="col-4 tic-box" id="box-5">+</div>
-            <div data-index="6" class="col-4 tic-box" id="box-6">+</div>
+            <div data-index="4" class="col-4 tic-box" id="box-4"></div>
+            <div data-index="5" class="col-4 tic-box" id="box-5"></div>
+            <div data-index="6" class="col-4 tic-box" id="box-6"></div>
         </div>
         <div class="row tic-row" id="grid-row">
-            <div data-index="7" class="col-4 tic-box" id="box-7">+</div>
-            <div data-index="8" class="col-4 tic-box" id="box-8">+</div>
-            <div data-index="9" class="col-4 tic-box" id="box-9">+</div>
+            <div data-index="7" class="col-4 tic-box" id="box-7"></div>
+            <div data-index="8" class="col-4 tic-box" id="box-8"></div>
+            <div data-index="9" class="col-4 tic-box" id="box-9"></div>
         </div>
 
     </div>
@@ -86,14 +105,13 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <button id="play" class="btn btn-primary">Play</button>
-                <button class="btn btn-success">Reset</button>
             </div>
         </div>
     </div>
     <br>
 
     <div class="container-fluid text-center">
-        <h4 id="screen">Player O's Turn</h4>
+        <h4 id="turn">Player X Turn</h4>
 
     </div>
 
@@ -109,10 +127,12 @@
             </div>
         </div>
     </div>
-    <br>
+    <br><br>
 
-    <div id="game-over-box" class="hidden">
-        <h2 id="game-over-text">Winner O</h2>
+    <div class="container">
+        <div id="game-over-box" class="invisible">
+            <h2 id="game-over-text">Winner O</h2>
+        </div>
     </div>
     
     
