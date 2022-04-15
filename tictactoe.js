@@ -4,16 +4,17 @@ let playerTurn = playerX;
 const tiles = document.querySelectorAll('.col-4');
 const boardState = Array(tiles.length);
 boardState.fill(null);
-console.log(boardState);
+console.log(boardState);   //used to check/validate current state
 
 
-
+//variables for bottom div elements (game over, player turn, paly button)
 const screen = document.querySelector('#game-over-box');
-const screenText = document.querySelector('#game-over-text');
 const play = document.querySelector('#play')
 const turn = document.querySelector('#turn');
 
+//game reset
 play.addEventListener('click', newGame);
+//tile click event
 tiles.forEach((tile) => tile.addEventListener('click', tileClick));
 
 function tileClick(event) {
@@ -44,6 +45,7 @@ function tileClick(event) {
     
 }
 
+//array of winning combos function to check for winner
 const winningCombinations = [
     {combo:[1, 2, 3]},
     {combo:[4, 5, 6]},
@@ -69,13 +71,15 @@ function checkWinner(){
     }
 }
 
+
+//game over alert message (WIP) and play button functionality
 function gameOverBanner(winnerText){
     let text = 'Draw';
     if (winnerText != null) {
         text = `Winner is ${winnerText}! Press Play to play again.`
     }
-    screen.className = 'visible';
-    screenText.innerText = text;
+    screen.innerHTML = `<div id="game-over-box" class="alert alert-success">${text}</div>`;
+    
 }
 
 function newGame() {
