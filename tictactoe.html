@@ -6,74 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <style>
+    <link rel="stylesheet" href="stylesheet.css">
 
-        #grid-row{
-            float: center;
-            
-            
-
-        }
-
-        .tic-box{
-            font-size: 112px;
-            padding: 4px;
-            text-align: center;
-            border-color: black;
-            border: solid;
-            border-radius: 50%;
-            height: 200px;
-            width: 200px;
-            margin: 4px;
-            
-        
-        }
-
-        #game-grid {
-            display: grid;
-            place-items: center;
-            cursor: pointer;
-        
-        }
-
-        .page-header{
-            text-align: center;
-            margin: .4vw 8px;
-            background: #398b54;
-            float: center;
-            border-radius: 8px;
-        }
-
-        #button-container {
-            float: center;
-        }
-
-        .col-sm-6 {
-            text-align: center;
-            font-size: 48px;
-
-        }
-
-        #game-over-box {
-            float: center;
-
-
-        }
-
-        h2 {
-            text-align: center;
-        }
-
-        .invisible {
-            visibility: hidden;
-        }
-
-        .visible {
-            visibility: visible;
-        }
-
-
-    </style>
 </head>
 <body>
     <div class="container" id="header-box">
@@ -130,8 +64,8 @@
     <br><br>
 
     <div class="container">
-        <div id="game-over-box" class="alert alert-success alert-invisible">
-            <h2 id="game-over-text">Winner O</h2>
+        <div id="game-over-box" class="invisible">
+            
         </div>
     </div>
     

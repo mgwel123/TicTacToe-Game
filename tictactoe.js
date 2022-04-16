@@ -18,7 +18,7 @@ play.addEventListener('click', newGame);
 tiles.forEach((tile) => tile.addEventListener('click', tileClick));
 
 function tileClick(event) {
-    if (screen.classList.contains('visible')){
+    if (screen.classList.contains('alert')){
         return;
     }
 
@@ -33,43 +33,55 @@ function tileClick(event) {
         boardState[tileNumber -1] = playerX;
         playerTurn = playerO;
         turn.innerText = 'Player O Turn';
+        console.log(turn);
 
     } else {
         tile.innerText = playerO;
         boardState[tileNumber - 1] = playerO;
         playerTurn = playerX;
         turn.innerText = 'Player X Turn';
+        console.log(turn);
     }
 
     checkWinner();
     
+    
 }
 
-//array of winning combos function to check for winner
-const winningCombinations = [
-    {combo:[1, 2, 3]},
-    {combo:[4, 5, 6]},
-    {combo:[7, 8, 9]},
-    {combo:[1, 4, 7]},
-    {combo:[2, 5, 8]},
-    {combo:[3, 6, 9]},
-    {combo:[1, 5, 9]},
-    {combo:[3, 5, 7]},
-];
-
-
+//array of winning combos & function to check for winner (WIP)
 function checkWinner(){
-    for(const winningCombination of winningCombinations){
-        const combo = winningCombination;
-        const tileValue1 = boardState[combo[0]-1];
-        const tileValue2 = boardState[combo[1]-1];
-        const tileValue3 = boardState[combo[2]-1];
 
-        if(tileValue1 != null && tileValue1 === tileValue2 && tileValue1 === tileValue3) {
+    const winningCombinations = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9],
+        [1, 4, 7],
+        [2, 5, 8],
+        [3, 6, 9],
+        [1, 5, 9],
+        [3, 5, 7],
+    ];
+
+
+    for(let i = 0; i < 8; i++){
+        const winCombo = winningCombinations[i];
+        const tileValue1 = boardState[winCombo[0]];
+        const tileValue2 = boardState[winCombo[1]];
+        const tileValue3 = boardState[winCombo[2]];
+
+        if (tileValue1 === '' || tileValue2 === '' || tileValue3 === '') {
+            continue;
+        }
+
+        if(tileValue1 === tileValue2 && tileValue2 === tileValue3) {
             gameOverBanner(tileValue1);
+            
         }
     }
+
 }
+
+
 
 
 //game over alert message (WIP) and play button functionality
@@ -78,14 +90,22 @@ function gameOverBanner(winnerText){
     if (winnerText != null) {
         text = `Winner is ${winnerText}! Press Play to play again.`
     }
-    screen.innerHTML = `<div id="game-over-box" class="alert alert-success">${text}</div>`;
+    const div = document.createElement('div');
+    div.setAttribute('class', 'alert alert-success');
+    div.setAttribute('role', 'alert');
+    div.setAttribute('id', 'game-over-alert');
+    div.innerText = `${text}`;
+    screen.className = 'visible';
+    screen.appendChild(div);
     
 }
 
 function newGame() {
     screen.className = 'invisible';
+    turn.innerText = 'Player X Turn';
     boardState.fill(null);
     tiles.forEach((tile) => (tile.innerText = ''));
     playerTurn = playerX;
-    turn.innerText = 'Player X Turn';
 }
+    
+    
