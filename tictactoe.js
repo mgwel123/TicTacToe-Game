@@ -118,6 +118,7 @@ function newGame() {
     boardState.fill(null);
     tiles.forEach((tile) => (tile.innerText = ''));
     playerTurn = playerX;
+    inGame = true;
 }
     
     
