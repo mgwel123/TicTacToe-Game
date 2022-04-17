@@ -28,14 +28,14 @@ function tileClick(event) {
 
         if (playerTurn === playerX) {
             tile.innerText = playerX;
-            boardState[tileNumber -1] = playerX;
+            boardState[tileNumber] = playerX;
             playerTurn = playerO;
             turn.innerText = 'Player O Turn';
             console.log(turn);
 
         } else {
             tile.innerText = playerO;
-            boardState[tileNumber - 1] = playerO;
+            boardState[tileNumber] = playerO;
             playerTurn = playerX;
             turn.innerText = 'Player X Turn';
             console.log(turn);
@@ -66,16 +66,19 @@ function checkWinner(){
 
     for(let i = 0; i < 8; i++){
         const winCombo = winningCombinations[i];
-        const tileValue1 = boardState[winCombo[0]];
-        const tileValue2 = boardState[winCombo[1]];
-        const tileValue3 = boardState[winCombo[2]];
+        let tileValue1 = boardState[winCombo[0]];
+        let tileValue2 = boardState[winCombo[1]];
+        let tileValue3 = boardState[winCombo[2]];
+        console.log(tileValue1);
+        console.log(tileValue2);
+        console.log(tileValue3);
 
 
         if(tileValue1 != null && tileValue1 === tileValue2 && tileValue1 === tileValue3) {
             gameWon = true;
             inGame = false;
             gameOverBanner(tileValue1, gameWon);
-            break;
+            return;
         }
     }
 
@@ -86,6 +89,7 @@ function checkWinner(){
 
 //game over alert message (WIP) and play button functionality
 function gameOverBanner(winnerText, gameWon){
+    screen.className = 'visible';
     
     if (winnerText != null && gameWon === true) {
         let text = `Winner is ${winnerText}! Press Play to play again.`;
@@ -94,7 +98,6 @@ function gameOverBanner(winnerText, gameWon){
         div.setAttribute('role', 'alert');
         div.setAttribute('id', 'game-over-alert');
         div.innerText = `${text}`;
-        screen.className = 'visible';
         screen.appendChild(div);
     } 
         
@@ -105,7 +108,6 @@ function gameOverBanner(winnerText, gameWon){
         div.setAttribute('role', 'alert');
         div.setAttribute('id', 'game-over-alert');
         div.innerText = `${text}`;
-        screen.className = 'visible';
         screen.appendChild(div);
     }
 }
